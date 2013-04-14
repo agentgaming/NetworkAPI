@@ -21,7 +21,7 @@ public class HTTPUtils {
      * @return the HTTP response
      * @see String
      */
-    public static String basicAuthPost(URL url,String params,String username,String password) throws Exception {
+    public static String basicAuthPost(URL url, String params, String username, String password) throws Exception {
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setDoOutput(true);
         con.setDoInput(true);
