@@ -4,8 +4,6 @@
 .classpath
 target/*
 target/*.yml
-.idea/copyright/*
-.idea/scopes/*
 
 # Package Files #
 *.jar
