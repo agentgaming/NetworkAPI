@@ -1,0 +1,12 @@
+*.class
+.settings/*
+.project
+.classpath
+target/*
+target/*.yml
+
+# Package Files #
+*.jar
+*.war
+*.ear
+/target
