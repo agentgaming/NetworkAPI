@@ -39,4 +39,24 @@ public class NetworkPlayer {
     public NetworkRank getRank() {
         return rank;
     }
+
+    public void setOnline(Boolean b) {
+        isOnline = b;
+    }
+
+    public void setRank(NetworkRank nr) {
+        rank = nr;
+    }
+
+    public void setTokens(Integer i) {
+        tokens = i;
+    }
+
+    public void setPlayer(String s) {
+        player = s;
+    }
+
+    public void setBanned(Boolean b) {
+        isBanned = b;
+    }
 }
