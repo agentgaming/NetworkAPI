@@ -1,5 +1,9 @@
 package com.mike724.networkapi;
 
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.scoreboard.*;
+
 /**
  * User: Dakota
  * Date: 4/14/13
@@ -8,13 +12,15 @@ package com.mike724.networkapi;
 public class NetworkPlayer {
     private String player;
     private Integer tokens;
+    private Integer cash;
     private Boolean isBanned;
     private Boolean isOnline;
     private NetworkRank rank;
 
-    public NetworkPlayer(String player, Integer tokens, Boolean isBanned, Boolean isOnline, NetworkRank rank) {
+    public NetworkPlayer(String player, Integer tokens, Integer cash, Boolean isBanned, Boolean isOnline, NetworkRank rank) {
         this.player = player;
         this.tokens = tokens;
+        this.cash = cash;
         this.isBanned = isBanned;
         this.isOnline = isOnline;
         this.rank = rank;
@@ -58,5 +64,26 @@ public class NetworkPlayer {
 
     public void setBanned(Boolean b) {
         isBanned = b;
+    }
+
+    public Integer getCash() {
+        return cash;
+    }
+
+    public void setCash(Integer cash) {
+        this.cash = cash;
+    }
+
+    public void updateWallet() {
+        ScoreboardManager manager = Bukkit.getScoreboardManager();
+        Scoreboard board = manager.getNewScoreboard();
+        Objective objective = board.registerNewObjective("currency", "display");
+        objective.setDisplaySlot(DisplaySlot.SIDEBAR);
+        objective.setDisplayName("Wallet");
+        Score tokens = objective.getScore(Bukkit.getOfflinePlayer(ChatColor.GRAY + "Tokens:"));
+        tokens.setScore(this.getTokens());
+        Score cash = objective.getScore(Bukkit.getOfflinePlayer(ChatColor.GOLD + "Cash:"));
+        cash.setScore(this.getCash());
+        Bukkit.getPlayer(this.getPlayer()).setScoreboard(board);
     }
 }
