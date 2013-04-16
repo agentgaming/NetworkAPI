@@ -6,6 +6,10 @@
     <name>NetworkAPI</name>
     <url>http://www.mike724.com/</url>
     <repositories>
+        <repository>
+            <id>bukkit-repo</id>
+            <url>http://repo.bukkit.org/content/groups/public</url>
+        </repository>
     </repositories>
     <build>
         <resources>
