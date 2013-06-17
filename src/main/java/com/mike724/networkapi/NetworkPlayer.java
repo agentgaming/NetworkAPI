@@ -26,6 +26,10 @@ public class NetworkPlayer {
         this.rank = rank;
     }
 
+    public NetworkPlayer(String player) {
+        this(player, 0, 0, false, false, NetworkRank.USER);
+    }
+
     public Integer getTokens() {
         return tokens;
     }
